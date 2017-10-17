@@ -4,6 +4,14 @@
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}"> {% endblock %}
 <!-- content block -->
 {% block content %}
+
+<div class="container">
+  <form>
+    <input type="text" name="movie_query" placeholder="Search for a movie" class="form-control">
+    <input type="submit" value="Submit" class="btn btn-default">
+  </form>
+</div>
+
 <h1> {{title}} </h1>
 <h3>Popular Movies</h3>
 <ul>
@@ -20,5 +28,3 @@
   {{macro.displayMovieList(now_showing)}}
 </ul>
 {% endblock %}
-
-</html>
