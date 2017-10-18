@@ -1,3 +1,16 @@
+class Movie:
+    '''
+    movie class to define movie objects
+    '''
+    def __init__(self,id,title,overview,image,vote_average,vote_count):
+        self.id =id
+        self.title = title
+        self.overview = overview
+        self.image = 'https://image.tmdb.org/t/p/w500'+image
+        self.vote_average = vote_average
+        self.vote_count = vote_count
+
+
 class Review:
 
     all_reviews = []
@@ -21,5 +34,5 @@ class Review:
         for review in cls.all_reviews:
             if review.movie_id == id:
                 response.append(review)
-                
+
         return response

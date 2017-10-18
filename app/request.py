@@ -1,20 +1,28 @@
-from app import app
+# from app import app
 import urllib.request, json
-from .models import movie
+from .models import Movie
 
-Movie = movie.Movie
+# Movie = movie.Movie
 #getting api key
-api_key=app.config['MOVIE_API_KEY']
+api_key= None
 
 # getting the movie base url
-base_url = app.config["MOVIE_API_BASE_URL"]
+base_url = None
 # base_test=app.config['test']
+
+def configure_request(app):
+    global api_key,base_url
+    api_key=app.config['MOVIE_API_KEY']
+    base_url = app.config["MOVIE_API_BASE_URL"]
+
+
 
 def get_movies(category):
     '''
     function that gets the json response to our url request
     '''
     get_movies_url=base_url.format(category,api_key)
+    # print(get_movies_url)
 
     with urllib.request.urlopen(get_movies_url) as url:
         get_movies_data=url.read()
